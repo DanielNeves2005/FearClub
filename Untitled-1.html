@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fear Club Forum</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Link to your CSS file where additional styling can be applied -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: url('michael myers.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        /* Add margin to the play buttons to adjust spacing */
+        .play-button {
+            margin: 10px;
+        }
+
+        /* Hide text within buttons and add a "Y" */
+        .play-button span {
+            display: none;
+        }
+
+        /* Change the color of the links to the color of the main title and remove underlines */
+        footer a {
+            color: #800000; /* Dark red color */
+            text-decoration: none; /* Remove underlines */
+        }
+    </style>
+</head>
+<body>
+    <!-- Add the audio elements without autoplay and without controls -->
+    <audio id="soundtrack-audio" controls style="display: none;">
+        <source src="halloween soundtrack.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="zepp-soundtrack-audio" controls style="display: none;">
+        <source src="saw soundtrack.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Add Play buttons with images for "Michael Myers" and "Saw" soundtracks -->
+    <button id="play-soundtrack-button" class="play-button" style="background: transparent; border: none; cursor: pointer;">
+        <img src="Michael.M Mask.png" alt="Michael Myers" style="width: 50px;">
+        <span>Y</span>
+    </button>
+    <button id="stop-soundtrack-button" style="display: none; background: transparent; border: none; cursor: pointer;">
+        Stop Michael Myers Soundtrack
+    </button>
+
+    <button id="play-zepp-soundtrack-button" class="play-button" style="background: transparent; border: none; cursor: pointer;">
+        <img src="Saw Mask.png" alt="Saw" style="width: 50px;">
+        <span>Y</span>
+    </button>
+    <button id="stop-zepp-soundtrack-button" style="display: none; background: transparent; border: none; cursor: pointer;">
+        Stop Saw Soundtrack
+    </button>
+
+    <header>
+        <h1 style="font-family: 'Creepsville', sans-serif; color: #800000; font-size: 100px;">Welcome to Fear Club</h1>
+        <style>
+            @font-face {
+                font-family: 'Creepsville';
+                src: url('fonts/Creepsville-Regular.woff') format('woff'),
+                     url('fonts/Creepsville-Regular.woff2') format('woff2'),
+                     url('fonts/Creepsville-Regular.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+    </header>
+    
+    <main>
+        <section>
+            <h2></h2>
+            <p></p>
+        </section>
+    </main>
+
+    <!-- Move the footer to the bottom of the page and style it with absolute positioning -->
+    <footer style="position: absolute; bottom: 0; width: 100%; text-align: left;">
+        <p>&copy; 2023 Fear Club Forum | <a href="#">Home</a> | <a href="#">Forums</a> | <a href="https://www.cinemablend.com/news/2554980/upcoming-horror-movies-all-the-scary-movies-coming-out-2020-2021" target="_blank">Upcoming Releases</a> | <a href="#">Contact</a></p>
+    </footer>
+
+    <!-- JavaScript to control audio playback using jQuery -->
+    <script>
+        $(document).ready(function() {
+            var soundtrackAudio = document.getElementById('soundtrack-audio');
+            var zeppSoundtrackAudio = document.getElementById('zepp-soundtrack-audio');
+            var playSoundtrackButton = $('#play-soundtrack-button');
+            var stopSoundtrackButton = $('#stop-soundtrack-button');
+            var playZeppSoundtrackButton = $('#play-zepp-soundtrack-button');
+            var stopZeppSoundtrackButton = $('#stop-zepp-soundtrack-button');
+            var soundPlaying = false;
+            var zeppSoundPlaying = false;
+
+            playSoundtrackButton.on('click', function() {
+                if (!soundPlaying) {
+                    soundtrackAudio.play();
+                    soundPlaying = true;
+                } else {
+                    soundtrackAudio.pause();
+                    soundPlaying = false;
+                }
+            });
+
+            playZeppSoundtrackButton.on('click', function() {
+                if (!zeppSoundPlaying) {
+                    zeppSoundtrackAudio.play();
+                    zeppSoundPlaying = true;
+                } else {
+                    zeppSoundtrackAudio.pause();
+                    zeppSoundPlaying = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
